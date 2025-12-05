@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Igor Zatochniy - Portfolio</title>
+    <style>
+        :root {
+            /* Основные цвета */
+            --bg-color: #050505;
+            --text-color: #e0e0e0;
+            --accent-color: #00add8;
+            --secondary-text: #888888;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        /* Фото профиля */
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            border: 3px solid var(--accent-color);
+            box-shadow: 0 4px 15px rgba(0, 173, 216, 0.2);
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+            color: #ffffff;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--accent-color);
+            margin-bottom: 2rem;
+        }
+
+        .bio {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 650px;
+            color: #bbbbbb;
+        }
+
+        .skills-section {
+            margin-bottom: 3rem;
+        }
+
+        .skills-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--secondary-text);
+            margin-bottom: 1.2rem;
+            display: block;
+            font-weight: 600;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        /* Стиль тегов */
+        .tag {
+            background-color: rgba(255, 255, 255, 0.03);
+            color: #d4d4d4;
+            padding: 10px 20px;
+            font-size: 0.95rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            cursor: default;
+            font-weight: 500;
+        }
+
+        .tag:hover {
+            border-color: var(--accent-color);
+            background-color: rgba(0, 173, 216, 0.05);
+            color: #ffffff;
+        }
+
+        /* СТИЛИ ДЛЯ ИКОНОК */
+        .links {
+            display: flex;
+            gap: 25px;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            width: 100%;
+        }
+
+        .link {
+            color: var(--text-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            opacity: 0.7;
+        }
+
+        /* Настройка SVG иконок */
+        .link svg {
+            width: 28px;  /* Размер иконки */
+            height: 28px;
+            fill: currentColor; /* Иконка берет цвет текста */
+        }
+
+        .link:hover {
+            color: var(--accent-color); /* Цвет при наведении */
+            opacity: 1;
+            transform: translateY(-3px); /* Легкий подскок вверх */
+        }
+
+        @media (max-width: 600px) {
+            .container { align-items: center; text-align: center; }
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.2rem; }
+            .links { justify-content: center; gap: 30px; }
+            .tags { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="avatar.jpg" alt="Igor Zatochniy" class="profile-photo">
+
+        <h1>Igor Zatochniy</h1>
+
+        <h2>Junior Go Developer / SMM / SEO / PPC</h2>
+
+        <p class="bio">
+            <strong>8 років у Digital Marketing.</strong> Досвідчений стратег у SMM, SEO та PPC, що трансформує свої навички у розробку на <strong>Golang</strong>.
+            <br><br>
+            Розумію потреби бізнесу зсередини і використовую цей бекграунд для написання ефективного коду та автоматизації процесів.
+            Фокусуюсь на бекенді, чистій архітектурі та високій продуктивності.
+        </p>
+
+        <div class="skills-section">
+            <span class="skills-title">Навыки и Инструменты</span>
+            <div class="tags">
+                <span class="tag">Golang</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">SMM Strategy</span>
+                <span class="tag">PPC</span>
+                <span class="tag">SEO</span>
+                <span class="tag">Email-маркетинг</span>
+                <span class="tag">CRM-маркетинг</span>
+                <span class="tag">Influencer Marketing</span>
+                <span class="tag">Marketing Automation</span>
+                <span class="tag">UX/UI</span>
+            </div>
+        </div>
+
+        <div class="links">
+            <a href="mailto:igor.zatochniy@gmail.com" class="link" aria-label="Email">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </a>
+
+            <a href="https://github.com/igor-zatochniy" class="link" target="_blank" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+
+            <a href="https://t.me/zatochniy" class="link" target="_blank" aria-label="Telegram">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
