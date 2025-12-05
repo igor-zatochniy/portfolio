@@ -16,10 +16,11 @@
             --bg-color: #050505;
             --text-color: #e0e0e0;
             --accent-color: #00add8;
-            --status-green: #2ecc71; /* Цвет статуса */
+            --status-green: #2ecc71;
             --secondary-text: #888888;
             --glass-bg: rgba(255, 255, 255, 0.03);
             --glass-border: rgba(255, 255, 255, 0.08);
+            --grid-line: rgba(255, 255, 255, 0.06); /* Цвет линий сетки */
         }
 
         * {
@@ -29,14 +30,7 @@
         }
 
         body {
-            /* ПРИМЕНЯЕМ ШРИФТ INTER */
             font-family: 'Inter', sans-serif;
-
-            /* ЖИВОЙ ФОН: Градиент */
-            background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #050505 80%);
-            background-size: 200% 200%;
-            animation: bgAnimation 15s ease infinite;
-
             color: var(--text-color);
             line-height: 1.6;
             display: flex;
@@ -45,13 +39,23 @@
             align-items: center;
             min-height: 100vh;
             padding: 20px;
-        }
 
-        /* Анимация фона */
-        @keyframes bgAnimation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            /* --- ФОН В СТИЛЕ ИНЖЕНЕРНОЙ СЕТКИ --- */
+            background-color: var(--bg-color);
+            background-image:
+                /* Слой 1: Виньетка (затемнение по краям) */
+                radial-gradient(circle at 50% 50%, transparent 20%, #050505 90%),
+                /* Слой 2: Горизонтальные линии */
+                linear-gradient(var(--grid-line) 1px, transparent 1px),
+                /* Слой 3: Вертикальные линии */
+                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+
+            /* Размер клетки сетки (40px на 40px) */
+            background-size: 100% 100%, 40px 40px, 40px 40px;
+
+            /* Фиксируем фон, чтобы при скролле сетка не дергалась */
+            background-attachment: fixed;
+            /* ------------------------------------ */
         }
 
         /* АНИМАЦИЯ ПОЯВЛЕНИЯ (Fade In) */
@@ -67,11 +71,12 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            /* Применяем анимацию появления */
             animation: fadeIn 1s ease-out forwards;
+            /* Добавляем легкую подложку, чтобы текст лучше читался на сетке */
+            position: relative;
+            z-index: 1;
         }
 
-        /* Фото профиля */
         .profile-photo {
             width: 150px;
             height: 150px;
@@ -81,27 +86,29 @@
             border: 3px solid var(--accent-color);
             box-shadow: 0 4px 15px rgba(0, 173, 216, 0.2);
             transition: transform 0.3s ease;
+            background-color: #111; /* Заглушка если фото не прогрузится */
         }
 
-        /* Легкое увеличение фото при наведении */
         .profile-photo:hover {
             transform: scale(1.05);
         }
 
-        /* --- СТИЛИ ДЛЯ СТАТУСА OPEN TO WORK --- */
+        /* --- СТАТУС OPEN TO WORK --- */
         .status-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
             padding: 6px 14px;
-            background: rgba(46, 204, 113, 0.1);
+            background: rgba(46, 204, 113, 0.1); /* Прозрачный зеленый фон */
             border: 1px solid rgba(46, 204, 113, 0.2);
             border-radius: 50px;
             color: var(--status-green);
             font-size: 0.85rem;
             font-weight: 600;
             margin-bottom: 1.2rem;
-            backdrop-filter: blur(5px);
+            /* Размытие фона под бейджем, чтобы сетка не мешала читать */
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
             cursor: default;
             transition: all 0.3s ease;
         }
@@ -119,7 +126,6 @@
             position: relative;
         }
 
-        /* Пульсирующий эффект точки */
         .status-dot::after {
             content: '';
             position: absolute;
@@ -138,7 +144,7 @@
             0% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
             100% { transform: translate(-50%, -50%) scale(3); opacity: 0; }
         }
-        /* -------------------------------------- */
+        /* --------------------------- */
 
         h1 {
             font-size: 3rem;
@@ -146,6 +152,8 @@
             margin-bottom: 0.5rem;
             letter-spacing: -1px;
             color: #ffffff;
+            /* Тень текста для лучшего контраста с сеткой */
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
         h2 {
@@ -172,7 +180,6 @@
             gap: 12px;
         }
 
-        /* СТИЛЬ ТЕГОВ + GLASSMORPHISM */
         .tag {
             background-color: var(--glass-bg);
             color: #d4d4d4;
@@ -180,11 +187,8 @@
             font-size: 0.95rem;
             border-radius: 50px;
             border: 1px solid var(--glass-border);
-
-            /* Эффект матового стекла */
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px); /* Важно: размывает сетку под тегом */
             -webkit-backdrop-filter: blur(8px);
-
             transition: all 0.3s ease;
             cursor: default;
             font-weight: 500;
@@ -206,7 +210,6 @@
             width: 100%;
         }
 
-        /* Стили для ссылок и подсказок */
         .link {
             color: var(--text-color);
             text-decoration: none;
@@ -215,7 +218,7 @@
             justify-content: center;
             transition: all 0.3s ease;
             opacity: 0.7;
-            position: relative; /* Для позиционирования подсказки */
+            position: relative;
         }
 
         .link svg {
@@ -230,9 +233,8 @@
             transform: translateY(-3px);
         }
 
-        /* TOOLTIP (ПОДСКАЗКА) */
         .link::after {
-            content: attr(data-title); /* Берет текст из HTML атрибута */
+            content: attr(data-title);
             position: absolute;
             bottom: -35px;
             left: 50%;
