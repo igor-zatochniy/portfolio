@@ -1,10 +1,49 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Igor Zatochniy - Portfolio</title>
-    <meta name="description" content="Portfolio of Igor Zatochniy - Junior Go Developer & Digital Marketing Strategist.">
+    <title>Igor Zatochniy - Junior Go Backend Developer</title>
+    <meta
+        name="description"
+        content="Portfolio of Igor Zatochniy, Junior Go Backend Developer. Projects with Go, PostgreSQL, REST APIs, Docker, RabbitMQ and automated testing."
+    >
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/igor-zatochniy">
+    <meta property="og:title" content="Igor Zatochniy — Junior Go Backend Developer">
+    <meta property="og:description" content="Junior Go Backend Developer. Go, PostgreSQL, REST APIs, Docker and RabbitMQ. 8 years of digital marketing experience and strong product thinking.">
+    <meta property="og:image" content="avatar.jpg">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Igor Zatochniy",
+        "jobTitle": "Junior Go Backend Developer",
+        "description": "Junior Go Backend Developer building backend services with Go, PostgreSQL, REST APIs, concurrent processing, external API integrations, automated tests, metrics and structured logging. Previous 8 years in digital marketing provide strong product thinking and experience solving real business problems.",
+        "image": "avatar.jpg",
+        "url": "https://github.com/igor-zatochniy",
+        "email": "mailto:igor.zatochniy@gmail.com",
+        "sameAs": [
+          "https://github.com/igor-zatochniy",
+          "https://t.me/zatochniy"
+        ],
+        "knowsAbout": [
+          "Golang",
+          "Go web development",
+          "PostgreSQL",
+          "Docker",
+          "Social Media Marketing (SMM)",
+          "Pay-Per-Click (PPC)",
+          "Search Engine Optimization (SEO)",
+          "Marketing Automation"
+        ]
+      }
+    }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -139,16 +178,76 @@
 
         h2 {
             font-size: 1.5rem;
-            font-weight: 400;
+            font-weight: 500;
             color: var(--accent-color);
+            margin-bottom: 0.65rem;
+        }
+
+        .hero-stack {
             margin-bottom: 1.5rem;
+            color: #d4d4d4;
+            font-family: monospace;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.01em;
         }
 
         .bio {
             font-size: 1.1rem;
-            margin-bottom: 2.5rem;
+            margin-bottom: 1.25rem;
             max-width: 650px;
             color: #bbbbbb;
+        }
+
+        .availability {
+            margin-bottom: 1rem;
+            color: var(--secondary-text);
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-button {
+            min-width: 145px;
+            padding: 12px 22px;
+            border: 1px solid var(--accent-color);
+            border-radius: 10px;
+            color: #ffffff;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-align: center;
+            text-decoration: none;
+            transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .hero-button-primary {
+            background: var(--accent-color);
+            box-shadow: 0 8px 22px rgba(0, 173, 216, 0.22);
+        }
+
+        .hero-button-secondary {
+            background: rgba(0, 173, 216, 0.08);
+        }
+
+        .hero-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 26px rgba(0, 173, 216, 0.3);
+        }
+
+        .hero-button-secondary:hover {
+            background: rgba(0, 173, 216, 0.16);
+        }
+
+        .hero-button:focus-visible {
+            outline: 3px solid rgba(0, 173, 216, 0.35);
+            outline-offset: 3px;
         }
 
         /* --- STYLES FOR PROJECTS --- */
@@ -277,6 +376,27 @@
             transform: translateY(-2px);
         }
 
+        .previous-experience {
+            width: 100%;
+            margin-bottom: 2rem;
+            padding: 16px 20px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 14px;
+            color: #bbbbbb;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .previous-experience strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .previous-experience span {
+            color: var(--secondary-text);
+        }
+
         .links {
             display: flex;
             gap: 25px;
@@ -335,12 +455,117 @@
             transform: translateX(-50%) translateY(0);
         }
 
+
+
+        /* --- PRINT / SAVE AS PDF --- */
+        @media print {
+            @page {
+                size: A4;
+                margin: 12mm;
+            }
+
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+
+            body {
+                display: block;
+                min-height: auto;
+                padding: 0;
+                background: #ffffff !important;
+                color: #111111 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .container {
+                max-width: 100%;
+                animation: none;
+            }
+
+            .profile-photo {
+                box-shadow: none;
+            }
+
+            h1,
+            .project-title {
+                color: #111111 !important;
+            }
+
+            h2,
+            .skills-title,
+            .tech-item {
+                color: #007f9e !important;
+            }
+
+            .bio,
+            .hero-stack,
+            .availability,
+            .project-desc,
+            .tag,
+            .link {
+                color: #333333 !important;
+            }
+
+            .project-card,
+            .tag {
+                background: #ffffff !important;
+                border-color: #cccccc !important;
+                box-shadow: none !important;
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+            }
+
+            .status-badge {
+                background: #f4fff7 !important;
+                border-color: #9ad8af !important;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .project-card {
+                padding: 16px;
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+
+            .profile-photo,
+            .status-badge,
+            h1,
+            h2,
+            .hero-stack,
+            .bio,
+            .availability,
+            .skills-section,
+            .previous-experience,
+            .links {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+
+            .links {
+                border-color: #cccccc;
+            }
+
+            .link::after {
+                display: none !important;
+            }
+        }
+
         @media (max-width: 600px) {
             .container { align-items: center; text-align: center; }
             h1 { font-size: 2.2rem; }
             h2 { font-size: 1.2rem; }
+            .hero-stack { text-align: center; }
+            .hero-actions { justify-content: center; width: 100%; }
+            .hero-button { flex: 1 1 150px; max-width: 220px; }
             .links { justify-content: center; gap: 30px; }
             .tags { justify-content: center; }
+            .previous-experience { text-align: center; }
             .project-header { flex-direction: column; gap: 10px; }
             .project-tech { justify-content: center; }
         }
@@ -358,67 +583,132 @@
 
         <h1>Igor Zatochniy</h1>
 
-        <h2>Junior Go Developer / SMM / PPC / SEO</h2>
+        <h2>Junior Go Backend Developer</h2>
+
+        <p class="hero-stack">Go • PostgreSQL • REST APIs • Docker • RabbitMQ</p>
 
         <p class="bio">
-            <strong>8 років у Digital Marketing.</strong> Досвідчений стратег в SMM, PPC та SEO, що трансформує свої навички у розробку на <strong>Golang</strong>.
+            Розробляю backend-сервіси на Go з PostgreSQL, REST API, конкурентною обробкою, інтеграціями із зовнішніми API, автоматизованими тестами, метриками та структурованими логами.
             <br><br>
-            Розумію потреби бізнесу зсередини та використовую цей бекграунд для написання ефективного коду. Фокусуюсь на бекенді, чистій архітектурі та високій продуктивності.
+            Вісім років досвіду в digital marketing сформували в мене сильне продуктове мислення та навички розв’язання реальних бізнес-завдань. Наразі шукаю позицію Junior Go Backend Developer.
         </p>
+
+        <p class="availability">Ukraine • Remote • Full-time • Available to start</p>
+
+        <div class="hero-actions" aria-label="Primary contacts">
+            <a href="https://github.com/igor-zatochniy" class="hero-button hero-button-primary" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="mailto:igor.zatochniy@gmail.com" class="hero-button hero-button-secondary">Contact Me</a>
+        </div>
 
         <h3 class="skills-title" style="color: var(--accent-color); opacity: 1;">Recent Projects</h3>
 
         <div class="projects-grid">
             <div class="project-card">
                 <div class="project-header">
-                    <span class="project-title">Website Checker</span>
-                    <a href="https://github.com/igor-zatochniy/website-checker/blob/main/main.go" class="repo-link" target="_blank">Code ↗</a>
+                    <span class="project-title">CryptoPulse Telegram Bot</span>
+                    <a href="https://github.com/igor-zatochniy/cryptopulse-telegram-bot" class="repo-link" target="_blank" rel="noopener noreferrer">Code ↗</a>
                 </div>
                 <p class="project-desc">
-                    Швидкий CLI-інструмент для моніторингу доступності 106 сайтів. Використовує Goroutines для миттєвої паралельної перевірки статусів і часу відгуку.
+                    Telegram-сервіс для моніторингу цін на криптовалюти та надсилання сповіщень за розкладом.
+                    <br><br>
+                    Використовує PostgreSQL для зберігання стану підписників, автентифіковані Telegram webhooks, паралельні пули воркерів, метрики Prometheus і захищене Docker-середовище виконання.
                 </p>
                 <div class="project-tech">
-                    <span class="tech-item">Golang</span>
-                    <span class="tech-item">Goroutines</span>
-                    <span class="tech-item">CLI</span>
-                    <span class="tech-item">net/http</span>
+                    <span class="tech-item">Go</span>
+                    <span class="tech-item">PostgreSQL</span>
+                    <span class="tech-item">Telegram API</span>
+                    <span class="tech-item">Docker</span>
+                    <span class="tech-item">Prometheus</span>
+                    <span class="tech-item">Testcontainers</span>
                 </div>
             </div>
 
             <div class="project-card">
                 <div class="project-header">
-                    <span class="project-title">TTS Reader</span>
-                    <a href="https://github.com/igor-zatochniy/tts-reader/blob/main/main.go" class="repo-link" target="_blank">Code ↗</a>
+                    <span class="project-title">SEO Auditor</span>
+                    <a href="https://github.com/igor-zatochniy/seo-auditor" class="repo-link" target="_blank" rel="noopener noreferrer">Code ↗</a>
                 </div>
                 <p class="project-desc">
-                    CLI-утиліта, яка перетворює .txt файли на персональні аудіокниги. Без сторонніх API та платних підписок — лише Go і PowerShell. Відтворення без обривів, автозбереження в JSON, управління через флаги: початок пошуку за фразою та легке перемикання голосів.
+                    Паралельний сервіс технічного SEO-аудиту, створений на Go та PostgreSQL.
+                    <br><br>
+                    Сканує сторінки через контрольований пул воркерів, дотримується правил robots.txt, обмежує частоту запитів, блокує небезпечні мережеві цілі та зберігає структуровані SEO-результати.
                 </p>
                 <div class="project-tech">
-                    <span class="tech-item">Golang</span>
-                    <span class="tech-item">PowerShell</span>
-                    <span class="tech-item">CLI</span>
-                    <span class="tech-item">Automation</span>
+                    <span class="tech-item">Go</span>
+                    <span class="tech-item">PostgreSQL</span>
+                    <span class="tech-item">Docker</span>
+                    <span class="tech-item">HTML Parsing</span>
+                    <span class="tech-item">Worker Pool</span>
+                    <span class="tech-item">SSRF Protection</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-title">Site Checker</span>
+                    <a href="https://github.com/igor-zatochniy/site-checker" class="repo-link" target="_blank" rel="noopener noreferrer">Code ↗</a>
+                </div>
+                <p class="project-desc">
+                    Розподілений backend-сервіс моніторингу з REST API, плануванням через PostgreSQL і RabbitMQ-воркерами.
+                    <br><br>
+                    Містить OpenAPI, історію перевірок, облік інцидентів, retry- та dead-letter-обробку, SSRF-захист, метрики Prometheus і розгортання в Kubernetes.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-item">Go</span>
+                    <span class="tech-item">PostgreSQL</span>
+                    <span class="tech-item">RabbitMQ</span>
+                    <span class="tech-item">REST API</span>
+                    <span class="tech-item">Docker</span>
+                    <span class="tech-item">Kubernetes</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="project-title">Audiobook TTS Reader</span>
+                    <a href="https://github.com/igor-zatochniy/tts-reader" class="repo-link" target="_blank" rel="noopener noreferrer">Code ↗</a>
+                </div>
+                <p class="project-desc">
+                    Windows-застосунок для озвучування аудіокниг із потоковою обробкою тексту та постійним збереженням прогресу відтворення.
+                    <br><br>
+                    Підтримує безпечне для UTF-8 розбиття тексту на фрагменти, відновлення позиції за byte offset, скасування через context, локальний REST/SSE API, fuzz-тестування та бенчмарки продуктивності.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-item">Go</span>
+                    <span class="tech-item">Streaming I/O</span>
+                    <span class="tech-item">UTF-8</span>
+                    <span class="tech-item">REST API</span>
+                    <span class="tech-item">SSE</span>
+                    <span class="tech-item">Fuzzing</span>
                 </div>
             </div>
         </div>
 
-        <h3 class="skills-title">Skills & Competencies</h3>
+        <h3 class="skills-title">CORE BACKEND SKILLS</h3>
         <div class="skills-section">
             <div class="tags">
-                <span class="tag" style="border-color: var(--accent-color);">Golang</span>
-                <span class="tag" style="border-color: var(--accent-color);">SQL (PostgreSQL)</span>
+                <span class="tag" style="border-color: var(--accent-color);">Go</span>
+                <span class="tag" style="border-color: var(--accent-color);">PostgreSQL</span>
+                <span class="tag" style="border-color: var(--accent-color);">REST APIs</span>
                 <span class="tag" style="border-color: var(--accent-color);">Docker</span>
-                <span class="tag" style="border-color: var(--accent-color);">JavaScript</span>
-
-                <span class="tag">SMM Strategy</span>
-                <span class="tag">PPC</span>
-                <span class="tag">SEO</span>
-                <span class="tag">Email-маркетинг</span>
-                <span class="tag">CRM-маркетинг</span>
-                <span class="tag">Influencer Marketing</span>
-                <span class="tag">Marketing Automation</span>
-                <span class="tag">UX/UI</span>
+                <span class="tag" style="border-color: var(--accent-color);">RabbitMQ</span>
+                <span class="tag" style="border-color: var(--accent-color);">Testing</span>
+                <span class="tag">Concurrency</span>
+                <span class="tag">context.Context</span>
+                <span class="tag">net/http</span>
+                <span class="tag">SQL</span>
+                <span class="tag">Testcontainers</span>
+                <span class="tag">OpenAPI</span>
+                <span class="tag">Prometheus</span>
+                <span class="tag">GitHub Actions</span>
+                <span class="tag">Git</span>
+                <span class="tag">Linux</span>
             </div>
+        </div>
+
+        <div class="previous-experience" aria-label="Previous experience">
+            <strong>Previous experience:</strong>
+            <span>Product Thinking · Digital Marketing · SEO · Marketing Automation · CRM Marketing · Email Marketing · PPC · UX/UI · SMM Strategy · Influencer Marketing</span>
         </div>
 
         <div class="links">
